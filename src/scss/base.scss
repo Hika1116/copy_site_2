@@ -1,0 +1,68 @@
+
+//絶対位置の指定
+@mixin absPosition ($top: auto, $right: auto, $bottom: auto, $left: auto) {
+    position: absolute;
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+}
+
+//ベンダープレフレックスの付与
+@mixin putPrefix($property, $value) {
+    @each $prefix in -webkit-,　-moz-, -ms-,　-o-,
+    '' {
+        #{$prefix}#{$property}: $value;
+    }
+}
+
+$header-con-color :rgb(1, 132, 137);
+$text-color : rgb(72, 72, 72);
+$text-input :#484848;
+$font-text-1: 0.9rem;
+
+//全体
+html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    font-family: 'ヒラギノ角ゴシック','Hiragino Sans',YuGothic,'Yu Gothic',sans-serif;
+    font-size: $font-text-1;
+    font-weight: 300;
+    color: #484848;
+}
+
+// 1080pxの画面が基準
+p {
+    color: red;
+}
+
+.image {
+    background-image: url(../img/demo_banner.png);
+    background-repeat: no-repeat;
+}
+
+//画面横400px-　スマホサイズ
+@media screen and (min-width:400px)and (max-width:768px) {
+    
+}
+
+//画面横768px-1024px　タブレットサイズ
+@media screen and (min-width:768px) and (max-width:1023px) {
+    
+}
+//画面横1024px-　PCデスクトップサイズ
+@media screen and (min-width:1024px) {
+    
+}
+
+// 大型モニターサイズ
+@media screen and (min-width:1600px) {
+    
+}
