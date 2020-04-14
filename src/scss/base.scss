@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
 //絶対位置の指定
 @mixin absPosition ($top: auto, $right: auto, $bottom: auto, $left: auto) {
     position: absolute;
@@ -16,11 +16,10 @@
     }
 }
 
-$header-con-color :rgb(1, 132, 137);
-$text-color : rgb(72, 72, 72);
-$text-input :#484848;
-$font-text-1: 0.9rem;
+$text-font-size-1:.9rem;
+$text-article-header-size:1.2rem;
 
+$text-color:#0d0015;
 //全体
 html {
     height: 100%;
@@ -28,29 +27,260 @@ html {
 }
 
 body {
-    position: relative;
-    height: 100%;
     width: 100%;
     margin: 0;
-    font-family: 'ヒラギノ角ゴシック','Hiragino Sans',YuGothic,'Yu Gothic',sans-serif;
-    font-size: $font-text-1;
+    font-family: 'Quicksand', sans-serif;
+    font-size: $text-font-size-1;
     font-weight: 300;
-    color: #484848;
+    color: $text-color;
+    @include putPrefix(display, flex);
+    @include putPrefix(flex-wrap, wrap);
 }
 
-// 1080pxの画面が基準
-p {
-    color: red;
+// 768px-1024pxの画面が基準
+header {
+    width: 100%;
+    margin: 0;
+    h1 {
+        display: block;
+        margin: 50px auto;
+        width: 400px;
+        text-align: center;
+        a {
+            color: $text-color;
+            text-decoration: none;
+            line-height: 50px;
+            font-size: 2rem;
+            span {
+                color: #9acc1e;
+            }
+        }
+        a:hover {
+            opacity: 0.5;
+        }
+    }
+    .nav-area {
+        ul {
+            width: 500px;
+            margin: 0 auto;
+            @include putPrefix(display, flex);
+            justify-content: space-between;
+            li {
+                a {
+                    text-decoration: none;
+                    color: #0d0015;
+                }
+                a:hover {
+                    border-bottom: solid 2px $text-color;
+                }
+            }
+        }
+    }
+    .menu-trigger{
+        display: none;
+    }
+    .corrupt-nav-area {
+        display: none;
+    }
 }
 
-.image {
-    background-image: url(../img/demo_banner.png);
-    background-repeat: no-repeat;
+main {
+    margin: 0;
+    width: 66.6%;
+    .article-list-area {
+        width: 100%;
+        @include putPrefix(display, flex);
+        @include putPrefix(flex-wrap, wrap);
+        article {
+            width: calc(50% - 20px);
+            height: 240px;
+            margin: 20px 10px;
+            @include putPrefix(box-sizing, border-box);
+            box-shadow: 0 2px 5px rgba(0,0,0,.2);
+            transition:box-shadow 0.3s, transform 0.3s;
+            img {
+                width: 100%;
+                height: 200px;
+                object-fit: cover;
+            }
+        }
+        article:hover {
+            box-shadow:0 6px 14px rgba(0, 0, 0, 0.24);
+            transform:translate(0, -3px);
+        }
+    }
+    
+}
+aside {
+    margin: 0;
+    width: 33.3%;
+}
+footer {
+    @include putPrefix(display, flex);
+    @include putPrefix(flex-wrap, wrap);
+    background-color: #383442;
+    color: white;
+    width: 100%;
+    .introduce-footer-area {
+        width: 33.3%;
+    }
+    .article-link-area {
+        width: 33.3%;
+    }
+    .popular-footer-area {
+        width: 33.3%;
+    }
+    .tag-footer-area {
+        width: 33.3%;
+    }
+    .license-area {
+        width: 100%;
+    }
 }
 
 //画面横400px-　スマホサイズ
-@media screen and (min-width:400px)and (max-width:768px) {
+@media screen and (min-width:320px)and (max-width:768px) {
+    header {
+        width: 100%;
+        margin: 0;
+        h1 {
+            display: block;
+            margin: 10px auto;
+            width: 200px;
+            a {
+                font-size: 1.5rem;
+            }
+        }
+        .nav-area {
+            display: none;
+        }
+        .menu-trigger{
+            z-index: 1000;
+            //ハンバーガーアイコンの描写
+            display: inline-block;
+            position: absolute;
+            top: 23px;
+            right: 30px;
+            width: 25px;
+            height: 20px;
+            
+            transition: all .4s;
+            box-sizing: border-box;
+            span {
+                display: inline-block;
+                transition: all .4s;
+                box-sizing: border-box;
+                
+                position: absolute;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                background-color: black;
+                border-radius: 4px;
+            }
+            span:nth-of-type(1) {
+                top: 0;
+              }
+            span:nth-of-type(2) {
+                top: 9px;
+              }
+            span:nth-of-type(3) {
+                bottom: 0;
+              }
+        }
+        .active {
+            span:nth-of-type(1) {
+                -webkit-transform: translateY(9px) rotate(-45deg);
+                transform: translateY(9px) rotate(-45deg);
+            }
+            span:nth-of-type(2) {
+                opacity: 0;
+            }
+            span:nth-of-type(3) {
+                -webkit-transform: translateY(-9px) rotate(45deg);
+                transform: translateY(-9px) rotate(45deg);
+            }
+        }
+        
+        .corrupt-nav-area {
+            transform: translateY(-100%);
+            transition: all 1s;
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: white;
+            height: 100%;
+            width: 100%;
+            opacity: .9;
+            h3 {
+                width: 300px;
+                font-size: 1.5rem;
+                margin: 25px auto;
+                color: $text-color;
+                text-align: center;
+            }
+
+            ul {
+                width: 70%;
+                font-size: 1rem;
+                margin: 0 auto;
+                li {
+                    position: relative;
+                    margin: 20px 0;
+                    list-style: none;
+                    a {
+                        text-decoration: none;
+                        color: $text-color;
+                    }
+                }
+                li:before {
+                    border-radius: 50%; /*丸くする*/
+                    width: 8px; /*点の幅*/
+                    height: 8px; /*点の高さ*/
+                    display: block;
+                    position: absolute; /*絶対配置*/
+                    left: -15px; /*点の位置*/
+                    top: 0.25em; /*点の位置*/
+                    content: "";
+                    background: #99CC1E; /*点の色*/
+                }
+            }
+        }
+    }
+    .open {
+        .corrupt-nav-area {
+            transform: translateY(0);
+        }
+    }
     
+    main {
+        margin: 0;
+        width: 100%;
+    }
+    aside {
+        margin: 0;
+        width: 100%;
+    }
+    footer {
+        @include putPrefix(display, flex);
+        @include putPrefix(flex-wrap, wrap);
+        background-color: #383442;
+        color: white;
+        width: 100%;
+        .introduce-footer-area {
+            width: 100%;
+        }
+        .article-link-area {
+            width: 100%;
+        }
+        .popular-footer-area {
+            width: 100%;
+        }
+        .tag-footer-area {
+            width: 100%;
+        }
+    }
 }
 
 //画面横768px-1024px　タブレットサイズ
@@ -59,7 +289,23 @@ p {
 }
 //画面横1024px-　PCデスクトップサイズ
 @media screen and (min-width:1024px) {
-    
+    header {
+        h1 {
+            a {
+                font-size: 3rem;
+            }
+        }
+        .nav-area {
+            ul {
+                width: 800px;
+                li {
+                    a {
+                        font-size: 1.2rem;
+                    }
+                }
+            }
+        }
+    }
 }
 
 // 大型モニターサイズ

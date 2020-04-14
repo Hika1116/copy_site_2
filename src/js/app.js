@@ -13,3 +13,9 @@ window.addEventListener('DOMContentLoaded', function() {
     // 初期化処理（こちらの方が早いかも）
     console.log("DOMContentLoaded");
 })
+
+$(".menu-trigger").click(()=> {
+    console.log("toggle active");
+    $(".menu-trigger").toggleClass("active");
+    $("header").toggleClass("open");
+});
