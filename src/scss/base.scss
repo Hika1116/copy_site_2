@@ -37,6 +37,12 @@ body {
     @include putPrefix(flex-wrap, wrap);
 }
 
+//共通
+.card-frame {
+    border-radius: 5px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, .2);
+}
+
 // 768px-1024pxの画面が基準
 header {
     width: 100%;
@@ -86,7 +92,7 @@ header {
 
 main {
     margin: 0;
-    width: 80%;
+    width: 68%;
     .article-list-area {
         width: 100%;
         @include putPrefix(display, flex);
@@ -95,10 +101,34 @@ main {
             width: calc(50% - 20px);
             margin: 20px 10px;
             @include putPrefix(box-sizing, border-box);
-            box-shadow: 0 2px 5px rgba(0,0,0,.2);
             transition:box-shadow 0.3s, transform 0.3s;
+            position: relative;
             img {
                 width: 100%;
+            }
+            h3 {
+                margin: 5px 20px;
+                font-size: .9rem;
+                line-height: 21px;
+                font-weight: 400;
+            }
+            p {
+                margin: 5px 20px;
+                margin-top: 15px;
+                text-align: right;
+                font-size: .8rem;
+                color: #888888;
+            }
+            span {
+                position: absolute;
+                top: 5%;
+                left: 5%;
+                font-size: .7rem;
+                color: white;
+                background-color: #9ACC1D;
+                border-radius: 10px;
+                padding: 5px 10px;
+                font-weight: 600;
             }
         }
         article:hover {
@@ -110,7 +140,130 @@ main {
 }
 aside {
     margin: 0;
-    width: 20%;
+    width: 32%;
+    .introduce-area {
+        margin: 20px 10px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        width: calc(100% - 20px);
+        box-sizing: border-box;
+        .theme-title {
+            display: block;
+            width: calc(90% - 40px);
+            margin: 10px auto;
+            background-color: black;
+            padding: 10px 5px;
+            p {
+                color: white;
+                width: 100%;
+                font-size: 1.2rem;
+                text-align: center;
+                line-height: 24px;
+            }
+            p:first-child {
+                margin-bottom: 1px;
+            }
+        }
+        img {
+            display: block;
+            width: calc(80% - 40px);
+            margin: 10px auto;
+        }
+        p {
+            width: calc(90% - 40px);
+            margin: 10px auto;
+            font-size: .9rem;
+            font-weight: 200;
+            line-height: 21px;
+        }
+        button {
+            background-color: red;
+            color: white;
+            border-radius: 10px;
+            width: calc(80% - 40px);
+            display: block;
+            margin: 20px auto;
+            padding: 10px 15px;
+            font-weight: 400;
+            font-size: .9rem;
+        }
+    }
+
+    .profile-area {
+        margin: 20px 10px;
+        padding-top: 5px;
+        width: calc(100% - 20px);
+        box-sizing: border-box;
+        img {
+            display: block;
+            width: 120px;
+            height: 120px;
+            border-radius: 60px;
+            margin: 10px auto;
+        }
+        .name-area {
+            p {
+                font-weight: 400;
+                font-size: 1rem;
+                text-align: center;
+            }
+            span {
+                display: block;
+                font-weight: 200;
+                font-size: .8rem;
+                text-align: center;
+                margin: 5px 0;
+                color: rgba(0, 0, 0, 0.35);
+            }
+        }
+        p {
+            width: calc(90% - 40px);
+            margin: 10px auto;
+            line-height: 21px;
+            font-size: .8rem;
+            font-weight: 200;
+        }
+        button {
+            background-color: gray;
+            color: white;
+            border-radius: 10px;
+            width: calc(80% - 40px);
+            display: block;
+            margin: 20px auto;
+            padding: 10px 15px;
+            font-weight: 400;
+            font-size: .9rem;
+        }
+        .sns-area {
+            width: calc(100% - 20px);
+            background-color: #9ACC1D;
+            padding: 10px;
+            h4 {
+                text-align: center;
+                color: white;
+                margin-bottom: 10px;
+
+            }
+            .sns {
+                width: 80%;
+                margin: 0 auto;
+                a {
+                    box-sizing: border-box;
+                    display: inline-block;
+                    text-align: center;
+                    width: 23%;
+                    margin: 0;
+                    text-decoration: none;
+                    color: #ACD653;
+                    .fab {
+                        color: white;
+                    }
+                }
+            }
+        }
+
+    }
+
 }
 footer {
     @include putPrefix(display, flex);
@@ -305,12 +458,21 @@ footer {
     }
 
     .desktop {
-        width: 1080px;
+        width: 1180px;
         margin: 0 auto;
         @include putPrefix(display, flex);
         main {
             width: 70%;
             margin: 0;
+            .article-list-area {
+                article {
+                    h3 {
+                        margin: 15px 30px;
+                        font-size: 1.1rem;
+                        line-height: 26px;
+                    }
+                }
+            }
         }
         aside {
             width: 30%;

@@ -27,7 +27,7 @@ $(".menu-trigger").click(()=> {
 
 //初期化、画面リサイズ時のイベント
 $(window).on('load resize', function () {
-    if($win.width() > 1024){
+    if($win.width() >= 1024){
         $(".wrap-contents").wrapAll('<div class="desktop">')
     } else {
         $(".wrap-contents").unwrap()
