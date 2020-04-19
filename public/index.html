@@ -45,7 +45,7 @@
     <!-- メインコンテンツ -->
     <main class="wrap-contents">
         <div class="article-list-area">
-            <article class="card-frame">
+            <article class="card-frame" id="text-button">
                 <img src="./img/stock_img/stock_img_10.jpg" alt="stock_img_1">
                 <h3>JINはデザインインポートに対応！自分好みのデザインに「着せ替え」できる</h3>
                 <p>2月 27,2018</p>
@@ -169,16 +169,24 @@
                    <img src="./img/stock_img/stock_img_5.jpg" alt="">
                    <p>「インフィード広告機能」に対応！ブログの収益化をさらに後押し</p>
                </article>
+               <article>
+                   <img src="./img/stock_img/stock_img_8.jpg" alt="">
+                   <p>「インフィード広告機能」に対応！ブログの収益化をさらに後押し</p>
+               </article>
            </div>
         </div>
         <div class="category-area card-frame">
             <h3 class="aside-article-header">CATEGORY</h3>
-            <select name="category">
-                <option value="1">JINのデザイン</option>
-                <option value="2">JINのエディタ</option>
-                <option value="3">JINの特徴</option>
-                <option value="4">収益化機能</option>
-            </select>
+            <div class="select-form">
+                <select name="category">
+                    <option value="1">JINのデザイン</option>
+                    <option value="2">JINのエディタ</option>
+                    <option value="3">JINの特徴</option>
+                    <option value="4">収益化機能</option>
+                </select>
+                <span></span>
+            </div>
+            
         </div>
         <div class="tag-area card-frame">
             <h3 class="aside-article-header">TAG</h3>
@@ -195,10 +203,11 @@
                 <p>広告</p>
             </div>
         </div>
-        <div class="serch-area card-frame">
+        <div class="search-area card-frame">
             <h3 class="aside-article-header">SEARCH</h3>
             <form action="#">
                 <input type="text">
+                <span></span>
             </form>
         </div>
         <div class="recommend-area card-frame">
@@ -215,21 +224,59 @@
     <!-- フッター -->
     <footer>
         <div class="introduce-footer-area">
-            <p>Webサイト紹介部分</p>
+            <img src="./img/logo_white@2x.png" alt="">
+            <p>読む人も、書く人も、すべてを考え抜いたデザインを実現。真の使いやすさを追求したWordPressテーマです。「アフィリエイト」と「SEO」に必要なものは、すべて詰め込みました。売れるサイト作りを確実に後押しします。</p>
+            <button>今すぐダウンロード</button>
         </div>
         <div class="article-link-area">
             <div class="catgory-area">
-                <p>カテゴリーリンク部分</p>
+                <h3 class="footer-header">CATEGORY</h3>
+                <ul>
+                    <li><a href="#">JINのエディタ</a></li>
+                    <li><a href="#">JINのデザイン</a></li>
+                    <li><a href="#">JINの特徴</a></li>
+                    <li><a href="#">収益化機能</a></li>
+                </ul>
             </div>
             <div class="archives-area">
-                <p>アーカイブリンク部分</p>
+                <h3>ARCHIVES</h3>
+                <ul>
+                    <li><a href="#">2018年12月</a></li>
+                    <li><a href="#">2018年11月</a></li>
+                    <li><a href="#">2018年10月</a></li>
+                </ul>
             </div>
         </div>
         <div class="popular-footer-area">
-            <p>人気記事部分</p>
+            <h3 class="footer-header">POPULAR POST</h3>
+            <div class="popular-post-list">
+                <article>
+                    <img src="./img/stock_img/stock_img_2.jpg" alt="">
+                    <p>JINはデザインインポートに対応！！自分好みのデザインい「着せ替え」できる</p>
+                </article>
+                <article>
+                    <img src="./img/stock_img/stock_img_3.jpg" alt="">
+                    <p>JINはデザインインポートに対応！！自分好みのデザインい「着せ替え」できる</p>
+                </article>
+                <article>
+                    <img src="./img/stock_img/stock_img_4.jpg" alt="">
+                    <p>JINはデザインインポートに対応！！自分好みのデザインい「着せ替え」できる</p>
+                </article>
+            </div>
         </div>
         <div class="tag-footer-area">
-            <p>タグリンク部分</p>
+            <div class="tag-list">
+                <p>SEO</p>
+                <p>WordPress</p>
+                <p>おすすめ機能</p>
+                <p>エディタ</p>
+                <p>スマホ</p>
+                <p>ツール</p>
+                <p>デザイン</p>
+                <p>ユーザビリティ</p>
+                <p>収益化</p>
+                <p>広告</p>
+            </div>
         </div>
         <div class="license-area">
             <p>&copy;2017-2020 Jin Demo Site 4</p>
