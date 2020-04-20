@@ -419,16 +419,125 @@ footer {
     color: white;
     width: 100%;
     .introduce-footer-area {
-        width: 33.3%;
+        width: calc(33.3% - 40px);
+        padding: 50px 20px;
+        img {
+            display: block;
+            width: 120px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+        p {
+            margin-top: 30px;
+            line-height: 25px;
+            font-size: .9rem;
+            font-weight: 200;
+        }
+
+        button {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            background-color: #E22155;
+            border-radius: 20px;
+            color: white;
+            padding: 5px 30px;
+            font-size: .9rem;
+            font-weight: 200;
+            position: relative;
+            &:after {
+                display: block;
+                content: "";
+                width: 5px;
+                height: 5px;
+                border-bottom: solid 2px #E22155;
+                border-right: solid 2px #E22155;
+                z-index: 10;
+
+                position: absolute;
+                top: 12px;
+                left: 16px;
+                transform: rotate(-45deg);
+
+            }
+            &:before {
+                display: block;
+                content: "";
+                width: 16px;
+                height: 16px;
+                background-color: white;
+                border-radius: 8px;
+
+                position: absolute;
+                top: 8px;
+                left: 13px;
+            }
+            &:hover {
+                opacity: .8;
+            }
+        }
     }
+    .footer-header {
+        font-size: .95rem;
+        font-weight: 500;
+        border-left: solid 2px #9ACC1D;
+        padding-left: 10px;
+    }
+
     .article-link-area {
-        width: 33.3%;
+        width: calc(33.3% - 40px);
+        padding: 50px 20px;
+
+        .archives-area {
+            margin-top: 50px;
+        }
+        
     }
+
+    .footer-link-list {
+        ul {
+            margin-top: 20px;
+
+            li {
+                padding-left: 10px;
+                list-style-type: none;
+                position: relative;
+                margin-bottom: 20px;
+                transition: all .3s;
+
+                a {
+                    color: white;
+                    text-decoration: none;
+                    font-size: .7rem;
+                }
+
+                &:before {
+                    display: block;
+                    content: "";
+                    width: 3px;
+                    height: 3px;
+                    border-bottom: solid 2px white;
+                    border-right: solid 2px white;
+                    position: absolute;
+                    top: 6px;
+                    left: 0;
+                    transform: rotate(-45deg);
+                }
+                &:hover {
+                    transform: translateX(2px);
+                }
+            }
+        }
+    }
+
     .popular-footer-area {
-        width: 33.3%;
+        width: calc(33.3% - 40px);
+        padding: 50px 20px;
+        
     }
     .tag-footer-area {
-        width: 33.3%;
+        width: calc(33.3% - 40px);
+        padding: 50px 20px;
     }
     .license-area {
         width: 100%;
