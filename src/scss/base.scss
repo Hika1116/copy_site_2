@@ -136,6 +136,43 @@ main {
             transform:translate(0, -3px);
         }
     }
+
+    .page-number-area {
+        @include putPrefix(display, flex);
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100px;
+        .page-number {
+            @include putPrefix(display, flex);
+            justify-content: center;
+
+
+            span {
+                color: #AAAAAA;
+                line-height: 40px;
+                display: inline-block;
+                width: 40px;
+                height: 40px;
+                border-radius: 20px;
+                box-shadow:0px 0px 3px;
+                margin: 0 10px;
+                text-align: center;
+                vertical-align: middle;
+                transition: all .3s ease;
+                &:hover {
+                    transform: translateY(-4px);
+                }
+            }
+            .active {
+                background-color: #0d0015;
+                color:white;
+                &:hover {
+                    transform: none;
+                }
+            }
+        }
+    }
     
 }
 
@@ -344,33 +381,9 @@ aside {
 
     .tag-area {
         padding: 20px 10px;
-        .tag-list {
-            @include putPrefix(display, flex);
-            @include putPrefix(flex-wrap, wrap);
-            padding: 5px;
-            p {
-                background-color: #F5F5F5;
-                padding: 5px;
-                border-radius: 10px;
-                margin-right: 5px;
-                font-size: .6rem;
-
-                &:before {
-                    font-family: "Font Awesome 5 Free";
-                    content: "\f02b";
-                    padding-right: 5px;
-                    /*文字との隙間*/
-                    color: black;
-                    /*アイコンの色*/
-                    font-weight: bold;
-                    width: 3px;
-                    height: 3px;
-                    font-size: .1rem;
-                }
-            }
-
-        }
     }
+
+    
 
     .search-area {
         padding: 20px 10px;
@@ -412,6 +425,34 @@ aside {
         padding: 20px 10px;
     }
 }
+
+.tag-list {
+    @include putPrefix(display, flex);
+    @include putPrefix(flex-wrap, wrap);
+    padding: 5px;
+
+    p {
+        background-color: #F5F5F5;
+        padding: 5px;
+        border-radius: 10px;
+        margin-right: 5px;
+        font-size: .6rem;
+
+        &:before {
+            font-family: "Font Awesome 5 Free";
+            content: "\f02b";
+            padding-right: 5px;
+            /*文字との隙間*/
+            color: black;
+            /*アイコンの色*/
+            font-weight: bold;
+            width: 3px;
+            height: 3px;
+            font-size: .1rem;
+        }
+    }
+}
+
 footer {
     @include putPrefix(display, flex);
     @include putPrefix(flex-wrap, wrap);
@@ -487,8 +528,14 @@ footer {
     .article-link-area {
         width: calc(33.3% - 40px);
         padding: 50px 20px;
+        @include putPrefix(display, flex);
+        @include putPrefix(flex-wrap, wrap);
 
+        .category-area {
+            width: 100%;
+        }
         .archives-area {
+            width: 100%;
             margin-top: 50px;
         }
         
@@ -533,14 +580,46 @@ footer {
     .popular-footer-area {
         width: calc(33.3% - 40px);
         padding: 50px 20px;
-        
+        .popular-post-list {
+            article {
+                @include putPrefix(display, flex);
+                margin: 20px 0;
+
+                img {
+                    width: calc(30% - 5px);
+                    object-fit: contain;
+                    margin-right: 5px;
+                }
+
+                p {
+                    font-size: .9rem;
+                    line-height: 18px;
+                    font-weight: 300;
+                    width: 70%;
+                }
+            }
+        }
     }
     .tag-footer-area {
         width: calc(33.3% - 40px);
         padding: 50px 20px;
+        .tag-list {
+            p {
+                background-color: #6A6771;
+                color: white;
+                &:before {
+                    color: white;
+                }
+            }
+        }
     }
     .license-area {
         width: 100%;
+        p {
+            text-align: center;
+            border-top: solid 1px white;
+            line-height: 35px;
+        }
     }
 }
 
@@ -689,23 +768,82 @@ footer {
         }
 
     }
+
+    
+
     footer {
-        @include putPrefix(display, flex);
-        @include putPrefix(flex-wrap, wrap);
-        background-color: #383442;
-        color: white;
-        width: 100%;
+        
+        .footer-header {
+            font-size: 1.1rem;
+            font-weight: 400;
+            border-bottom: solid 1px #9ACC1D;
+            padding-left: 0px;
+            border-left: none;
+            line-height: 30px;
+        }
+
+        .footer-link-list {
+            ul {
+                li {
+                    padding-left: 0;
+                    margin-bottom: 20px;
+                    transition: all .3s;
+                    padding-left: 20px;
+                    border-bottom: solid 1px white;
+                    line-height: 30px;
+
+                    a {
+                        color: white;
+                        text-decoration: none;
+                        font-size: .9rem;
+                    }
+                    &:before {
+                        display: block;
+                        content: "";
+                        width: 5px;
+                        height: 5px;
+                        position: absolute;
+                        top: 12px;
+                        left: 0;
+                        transform: rotate(-45deg);
+                    }
+                }  
+            }
+        }
+
+        // @include putPrefix(display, flex);
+        // @include putPrefix(flex-wrap, wrap);
+        // background-color: #383442;
+        // color: white;
+        // width: 100%;
         .introduce-footer-area {
             width: 100%;
+            order: 1;
         }
         .article-link-area {
             width: 100%;
+            order:3;
         }
         .popular-footer-area {
             width: 100%;
+            order: 4;
+            .popular-post-list {
+                article {
+                    img {
+                        width: calc(40% - 20px);
+                        margin-right: 20px;
+                    }
+
+                    p {
+                        width: 60%;
+                        font-weight: 500;
+                    }
+                }
+            }
         }
         .tag-footer-area {
             width: 100%;
+            order: 2;
         }
     }
 }
@@ -772,6 +910,24 @@ footer {
 
             .category-area {
                 padding: 30px 30px;
+            }
+        }
+    }
+
+    .footer-width {
+        width: 1180px;
+        margin:0 auto;
+        @include putPrefix(display, flex);
+        @include putPrefix(flex-wrap, wrap);
+
+        .article-link-area {
+            .category-area {
+                width: calc(50% - 60px);
+                margin: 0 30px;
+            }
+            .archives-area {
+                width: calc(50% - 60px);
+                margin: 0 30px;
             }
         }
     }

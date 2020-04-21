@@ -33,11 +33,19 @@ window.addEventListener("resize", ()=>{
 
 const resizeWindow = () => {
     if ($win.width() > 1024) {
+        // main部分
         let div = document.createElement("div");
         div.classList.add("desktop");
         defaultClass.wrapAll(document.querySelectorAll(".wrap-contents"), div);
+
+
+        let div_footer = document.createElement("div");
+        div_footer.classList.add("footer-width");
+        defaultClass.wrapAll(document.querySelectorAll(".footer-wrap"), div_footer);
+
     } else {
         defaultClass.unwrap(document.querySelector(".desktop"));
+        defaultClass.unwrap(document.querySelector(".footer-width"));
     }
 }
 
